@@ -2,7 +2,7 @@ var NodeWebcam = require( "node-webcam" );
 var Jimp = require("jimp");
 var QrCode = require('qrcode-reader');
 var fs = require('fs');
-
+var path = require('path')
 var qr = new QrCode();
 
 qr.callback = function(error, result) {
@@ -29,7 +29,10 @@ qr.callback = function(error, result) {
               // TODO handle error
           }
           console.log(value.result);
-          console.log(value);
+          var st = value.result
+          var car = st.split(",")
+          console.log(car)
+          
       };
       qr.decode(image.bitmap);
   });

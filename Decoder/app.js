@@ -1,8 +1,5 @@
-var QrcodeDecoder = require('qrcode-decoder')
+var path = require('path')
 
+var dir = path.join(__dirname, '../')
 
-var qr = new QrcodeDecoder();
-
-qr.decodeFromImage('sample.png').then((res) => {
-    console.log(res);   
-});
+console.log(dir)
