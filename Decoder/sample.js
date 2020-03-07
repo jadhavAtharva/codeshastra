@@ -19,7 +19,7 @@ qr.callback = function(error, result) {
   }
 
   var Jimp = require("jimp");
-  var dir = path.join(__dirname, '../Server/src/predictions/87541203.png')
+  var dir = path.join(__dirname, '../Server/src/predictions/WiSP2c8y.png')
   var buffer = fs.readFileSync(dir);
   Jimp.read(buffer, function(err, image) {
       if (err) {
@@ -37,9 +37,16 @@ qr.callback = function(error, result) {
           var car = st.split(",")
           console.log(car)
 
-          check_validity(car[5])
-          check_station(car[2], car[3])
-          check_day(car[1], 2)
+          var val = check_validity(car[5], car[2])
+          var stat = check_station(car[2], car[3])
+          var reday = check_day(car[1], car[4])
+          
+          if(val == 1 && stat == 1 && reday == 1){
+              console.log("Accepted!!!")
+          }
+          else{
+              console.log("Rejected!!!")
+          }
       };
       qr.decode(image.bitmap);
   });

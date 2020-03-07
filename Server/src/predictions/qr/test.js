@@ -4,14 +4,15 @@ const cors = require('cors')
 const bodyParser = require('body-parser')
 const random = require('randomstring')
 
-const app = express()
 
+const app = express()
+var final = ''
 app.use(express.json())
 app.use(cors())
 app.use(bodyParser.urlencoded({extended:false}))
 app.use(bodyParser.json())
 
-app.post('/qrcode', (req,res) =>{
+app.post('/qrcode', async(req,res) =>{
 
 
     const rn_number = random.generate({
@@ -28,12 +29,34 @@ app.post('/qrcode', (req,res) =>{
 
     process.stdout.on('data', function(data) {
 
-       res.send(data.toString());
-        
+         final = data.toString().split(",")
+         res.status(201).send(final)
     })
-    
+       
+
+    //    res.send(data.toString());
     })
 
-app.listen(4000, ()=>{
+
+// app.post('/ticket', async(req,res) => {
+//     const tas = new dome({
+//         AFB: final[0],
+//         date: final[1],
+//         src: final[2],
+//         dest: final[3],
+//         ret: final[4],
+//         time: final[5],    
+//       })
+//       try {
+//         await tas.save()
+//         res.status(201).send(tas)
+//       } catch(e) {
+//         res.status(400).send(e)
+//       }
+// })
+
+app.listen(5000, ()=>{
     console.log('Server is running!')
 })
+
+module.exports = final
