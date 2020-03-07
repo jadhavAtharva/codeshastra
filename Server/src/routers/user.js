@@ -5,11 +5,6 @@ const sharp = require('sharp')
 const random = require('randomstring')
 
 router.post('/users' , async (req,res)=>{
-
-    const rn_number = random.generate({
-      length: 8,
-      charset: 'numeric'
-    })
     const newObj = Object.assign(req.body)
     const user = new User(newObj)
 

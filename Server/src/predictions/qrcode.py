@@ -1,13 +1,23 @@
 import pyqrcode
 from pyqrcode import QRCode
+from datetime import datetime
+from datetime import date
+from random import randint
 import sys
+from random import randint
 
-a = sys.argv[5]
-b = sys.argv[3]
+now = datetime.now()
+
+current_time = now.strftime("%H:%M")
+today = date.today()
+d1 = today.strftime("%d-%m-%Y")
+
+a = sys.argv[3]
+b = d1
 c = sys.argv[1]
 d = sys.argv[2]
-e = sys.argv[6]
-f = sys.argv[4]
+e = sys.argv[4]
+f = current_time
 
 print(a)
 
