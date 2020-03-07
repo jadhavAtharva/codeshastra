@@ -4,7 +4,7 @@ const auth = require('../middleware/auth')
 const routers = new express.Router()
 
 
-routers.post('/ticket', auth, async (req, res)=>{
+routers.post('/ticket', async (req, res)=>{
     const task = new tasks({
       ...req.body,
       owner: req.user._id      
@@ -93,7 +93,7 @@ routers.post('/ticket', auth, async (req, res)=>{
   //   }
   // })
   
-  routers.delete('/fertilizer/:id', auth, async (req,res)=>{
+  routers.delete('/fertilizer/:id', async (req,res)=>{
     try {
       const task = await tasks.findOneAndDelete({ _id: req.params.id, owner: req.user._id })
       
