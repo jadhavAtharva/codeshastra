@@ -25,7 +25,7 @@ const taskSchema = new mongoose.Schema({
         maxlength: 8,
         unique: true
     },
-    return: {
+    ret: {
         type: Boolean,
     },
     owner: {

@@ -22,10 +22,13 @@ const userSchema = new mongoose.Schema({
     },
     phone_no: {
         type: Number,
-        required: true,
         maxlength: 10,
         minlength: 10,
         unique: true,
+    },
+    station: {
+        type: String,
+        required: true
     },
     tokens: [{
         token: {
