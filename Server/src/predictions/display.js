@@ -15,11 +15,8 @@
 
 // var server = app.listen(5000);
 
-var path = require('path')
-var fs = require('fs')
+var { final } = require('./qr/test')
 
+console.log(final)
 
-var dir = path.join(__dirname, './87541203.png')
-var buffer = fs.readFileSync(dir);
-
-console.log(buffer)
+module.exports = final

@@ -7,13 +7,8 @@ const routers = new express.Router()
 
 routers.post('/ticket', async (req, res)=>{
     const task = new tasks({
-      AFB: final[0],
-      date: final[1],
-      src: final[2],
-      dest: final[3],
-      ret: final[4],
-      time: final[5],       
-    })
+      ...req.body
+    })     
 
     try {
       await task.save()
