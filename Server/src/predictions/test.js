@@ -20,7 +20,7 @@ app.post('/qrcode', (req,res) =>{
     var e = req.body.e
     var f = req.body.f
 
-    console.log(req.body)
+    
     const process = spawn('python', ['./qrcode.py',a,b,c,d,e,f]);
 
     process.stdout.on('data', function(data) {

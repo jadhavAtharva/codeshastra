@@ -16,7 +16,7 @@ app.use(userRouter)
 app.use(taskRouter)
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
-app.user(cors())
+app.use(cors())
 
 
 app.listen(port , ()=>{
