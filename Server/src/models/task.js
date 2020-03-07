@@ -26,7 +26,7 @@ const taskSchema = new mongoose.Schema({
         unique: true
     },
     ret: {
-        type: Boolean,
+        type: Number,
     },
     owner: {
         type: mongoose.Schema.Types.ObjectId,

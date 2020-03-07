@@ -5,6 +5,10 @@ var fs = require('fs');
 var path = require('path')
 var qr = new QrCode();
 
+var {check_day, check_station, check_validity} = require('./functions')
+
+
+
 qr.callback = function(error, result) {
     if(error) {
       console.log(error)
@@ -32,7 +36,10 @@ qr.callback = function(error, result) {
           var st = value.result
           var car = st.split(",")
           console.log(car)
-          
+
+          check_validity(car[5])
+          check_station(car[2], car[3])
+          check_day(car[1], 2)
       };
       qr.decode(image.bitmap);
   });
