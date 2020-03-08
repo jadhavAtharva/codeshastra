@@ -28,9 +28,10 @@ router.post('/users' , async (req,res)=>{
     var final = temp.split(",")
     console.log(final[0])
     try{
-      const task = await tasks.find({ AFB: final[0] })
+      const task = await tasks.find({ "AFB": final[0] })
+      console.log(task)
       if(task == ''){
-        res.send("Invalid ticket!")
+        res.send("InValid ticket!")
       }
       else{
         var val = check_validity(final[5], final[2])

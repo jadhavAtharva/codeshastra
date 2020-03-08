@@ -1,5 +1,5 @@
 var sample = require('./sample.json')
-var station_code = sample["airoli"]
+var station_code = sample["panvel"]
 var check_day = function(day , typeofjourney) {
     if(typeofjourney == 1){
         var d = new Date()

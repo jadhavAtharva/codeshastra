@@ -23,7 +23,7 @@ current_time = now.strftime("%H:%M")
 today = date.today()
 d1 = today.strftime("%d-%m-%Y")
 
-db = client.database
+db = client.ticketplease
 
 a = rand(8)
 b = d1
