@@ -12,7 +12,7 @@
         <a class="nav-link"> Home </a>
         </router-link>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" v-if="$store.getters.logIn === false">
         <router-link to="/">
         <a class="nav-link"> Login </a>
         </router-link>
@@ -22,7 +22,7 @@
         <a class="nav-link"> Signup </a>
         </router-link>
       </li>
-      <li class="nav-item">
+      <li class="nav-item"  v-if="$store.getters.logIn === true">
         <router-link to="/scanner">
         <a class="nav-link"> Scanner </a>
         </router-link>

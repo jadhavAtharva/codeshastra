@@ -1,4 +1,5 @@
 import axios from 'axios'
+import router from '../../router'
 
 const state = {
   user: {},
@@ -6,6 +7,7 @@ const state = {
 }
 
 const getters = {
+  logIn: state => state.loggedIn,
   user: state => state.user,
 }
 
@@ -28,8 +30,10 @@ const mutations = {
   newLogin (state, login) {
     axios.post('http://localhost:3000/users/login', login)
     .then((response) => {
+      state.loggedIn = true
       alert('logged in sucessfully')
       console.log(response)
+      router.push('./home')
     })
     .catch((error) => {
       console.log(error)
@@ -45,6 +49,7 @@ const mutations = {
     .then((response) => {
       alert('Sign in sucessfully')
       console.log(response)
+      router.push('./')
     })
     .catch((error) => {
       console.log(error)

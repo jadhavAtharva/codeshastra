@@ -32,8 +32,6 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import router from '../router'
-
 export default {
   name: 'App',
   components: {
@@ -58,7 +56,6 @@ export default {
         password: this.password
       }
       this.login(login)
-      router.push('./home')
     }
   }
 }

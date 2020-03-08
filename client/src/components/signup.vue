@@ -37,7 +37,6 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import router from '../router'
 
 export default {
   name: 'App',
@@ -65,7 +64,6 @@ export default {
         name: this.name
       }
       this.signup(signup)
-      router.push('./')
     }
   }
 }
