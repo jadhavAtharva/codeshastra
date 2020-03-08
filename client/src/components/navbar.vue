@@ -22,6 +22,11 @@
         <a class="nav-link"> Signup </a>
         </router-link>
       </li>
+      <li class="nav-item">
+        <router-link to="/scanner">
+        <a class="nav-link"> Scanner </a>
+        </router-link>
+      </li>
     </ul>
   </div>
 </nav>
