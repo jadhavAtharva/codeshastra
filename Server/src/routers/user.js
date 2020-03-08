@@ -16,6 +16,11 @@ router.post('/users' , async (req,res)=>{
       res.status(400).send(e)
     }
   })
+
+  router.post('/data', async (req, res) => {
+    console.log(req.body)
+    res.status(201).send()
+ })
   
 router.post('/data', async (req, res) => {
    console.log(req.body)
