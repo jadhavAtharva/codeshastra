@@ -17,8 +17,8 @@
         <div class="col-md-4">
           <label for="dest">Mode</label>
         <select id="mode" class="form-control" v-model="mode">
-        <option selected value="single">Single</option>
-        <option value="return">Return</option>
+        <option selected value="1">Single</option>
+        <option value="2">Return</option>
       </select>
         </div>
         <br>
