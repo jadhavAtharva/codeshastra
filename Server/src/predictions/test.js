@@ -23,7 +23,6 @@ app.post('/qrcode', (req,res) =>{
     var f = req.body.f
     const spawn = require('child_process').spawn;
     const process = spawn('python', ['./qrcode.py',a,b,f]);
-    console.log(a)
     process.stdout.on('data', function(data) {
 
          final = data.toString().split(",")

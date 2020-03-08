@@ -29,7 +29,7 @@ a = rand(8)
 b = d1
 c = sys.argv[1]
 d = sys.argv[2]
-e = sys.argv[4]
+e = sys.argv[3]
 f = current_time
 
 tasks = db.tasks
@@ -45,9 +45,7 @@ data = {
 result_id = tasks.insert_one(data).inserted_id
 
 s = a+','+b+','+c+','+d+','+e+','+f
-
+print(c)
 q = pyqrcode.create(s)
 
-q.png('hey.png', scale = 10)
-
-print(c)
+q.png('hey1.png', scale = 10)
