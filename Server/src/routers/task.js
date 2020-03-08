@@ -1,14 +1,14 @@
 const express = require('express')
 const tasks = require('../models/task')
 const auth = require('../middleware/auth')
+// const { final } = require('../predictions/test')
 const routers = new express.Router()
 
 
 routers.post('/ticket', async (req, res)=>{
     const task = new tasks({
-      ...req.body,
-      owner: req.user._id      
-    })
+      ...req.body
+    })     
 
     try {
       await task.save()
