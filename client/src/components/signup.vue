@@ -26,7 +26,7 @@
   <br>
   <br>
   <div>
-  <button type="submit" class="btn btn-primary" id="btn" style="margin-left:5%">LOGIN</button>
+  <button type="submit" class="btn btn-primary" id="btn" style="margin-left:5%">Signup</button>
   </div>
 
       </form>
@@ -37,6 +37,7 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
+import router from '../router'
 
 export default {
   name: 'App',
@@ -64,6 +65,7 @@ export default {
         name: this.name
       }
       this.signup(signup)
+      router.push('./')
     }
   }
 }
@@ -71,7 +73,7 @@ export default {
 
 <style>
 #back{
-
+  margin-left: 40%;
   background-repeat: no-repeat;
   background-size: contain;
   height: 700px;

@@ -1,4 +1,3 @@
-import router from '../../router'
 import axios from 'axios'
 
 const state = {
@@ -19,7 +18,10 @@ const actions = {
   },
   generate ({commit},generate) {
     commit('ticket',generate)
-  }
+  },
+  addData ({commit}, data) {
+    commit('newData', data)
+  },
 }
 
 const mutations = {
@@ -31,7 +33,7 @@ const mutations = {
     })
     .catch((error) => {
       console.log(error)
-      alert('shubham')
+      alert('Password or id did not match')
     })
   },
   newSignup (state, signup) {
@@ -41,25 +43,36 @@ const mutations = {
       }
     })
     .then((response) => {
-      alert('logged in sucessfully')
+      alert('Sign in sucessfully')
       console.log(response)
     })
     .catch((error) => {
       console.log(error)
-      alert('shubham')
+      alert('Error occured')
     })
   },
-  ticket (state,generate) {
-      axios.post('http://localhost:4000/qrcode', generate)
-      .then((response) => {
-        alert('Ticket Sucessfully Generated')
-        console.log(response)
-      })
-      .catch((error) => {
-        console.log(error)
-        alert('shubham')
-      })
-  }
+ticket (state,generate) {
+  axios.post('http://localhost:4000/qrcode/', generate)
+  .then((response) => {
+    alert('Ticket Sucessfully Generated')
+    console.log(response)
+  })
+  .catch((error) => {
+    console.log(error)
+    alert('Failed to generate ticket')
+  })
+},
+newData (state, data) {
+  axios.post('http://localhost:3000/data', data)
+  .then((response) => {
+    alert('Acess given')
+    console.log(response)
+  })
+  .catch((error) => {
+    console.log(error)
+    alert('Acess denied')
+  })
+},
 }
 
 export default {

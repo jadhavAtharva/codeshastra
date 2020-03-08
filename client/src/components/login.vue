@@ -32,6 +32,7 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
+import router from '../router'
 
 export default {
   name: 'App',
@@ -57,6 +58,7 @@ export default {
         password: this.password
       }
       this.login(login)
+      router.push('./home')
     }
   }
 }
@@ -64,7 +66,7 @@ export default {
 
 <style>
 #back{
-
+  margin-left: 40%;
   background-repeat: no-repeat;
   background-size: contain;
   height: 700px;
