@@ -52,7 +52,7 @@ const mutations = {
     })
   },
 ticket (state,generate) {
-  axios.post('http://localhost:4000/qrcode/', generate)
+  axios.post('http://localhost:5000/qrcode/', generate)
   .then((response) => {
     alert('Ticket Sucessfully Generated')
     console.log(response)
