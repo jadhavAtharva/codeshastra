@@ -23,6 +23,6 @@ s = a+','+b+','+c+','+d+','+e+','+f
 
 q = pyqrcode.create(s)
 
-q.png(a+'.png', scale = 10)
+q.png('hey.png', scale = 10)
 
 print(s)
