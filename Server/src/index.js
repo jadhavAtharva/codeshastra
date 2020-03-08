@@ -1,5 +1,6 @@
 const express = require('express')
 require('./db/mongoose')
+
 const cors = require('cors')
 const bodyParser = require('body-parser')
 

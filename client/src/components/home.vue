@@ -52,7 +52,7 @@ export default {
     ...mapGetters(['user'])
   },
   methods: {
-    ...mapActions(['generate']),
+    ...mapActions(['generate','generate2']),
     onSubmit (e) {
       e.preventDefault()
       const generate = {
@@ -68,7 +68,7 @@ export default {
 
 <style>
 #back{
-
+  margin-left: 40%;
   background-repeat: no-repeat;
   background-size: contain;
   height: 700px;

@@ -16,6 +16,7 @@
     "bcryptjs": "^2.4.3",
     "cheerio": "^1.0.0-rc.3",
     "child_process": "^1.0.2",
+    "cors": "^2.8.5",
     "express": "^4.16.4",
     "fast-csv": "^4.0.2",
     "gmail-send": "^1.8.10",

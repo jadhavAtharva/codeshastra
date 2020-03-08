@@ -13,143 +13,55 @@ var rutu = ''
 const routers = new express.Router()
 
 
-qr.callback = function(error, result) {
-  if(error) {
-    console.log(error)
-    return;
-  }
-  console.log(result)
-}
+// qr.callback = function(error, result) {
+//   if(error) {
+//     console.log(error)
+//     return;
+//   }
+//   console.log(result)
+// }
 
-var Jimp = require("jimp");
-var dir = path.join(__dirname, '../predictions/qr/hey.png')
-var buffer = fs.readFileSync(dir);
-Jimp.read(buffer, function(err, image) {
-    if (err) {
-        console.error(err);
-        // TODO handle error
-    }
-    var qr = new QrCode();
-    qr.callback = function(err, value) {
-        if (err) {
-            console.error(err);
-            // TODO handle error
-        }
-        console.log(value.result);
-         inter = value.result
-         rutu = inter.split(",")
-    };
-    qr.decode(image.bitmap);
-});
+// var Jimp = require("jimp");
+// var dir = path.join(__dirname, '../predictions/qr/hey.png')
+// var buffer = fs.readFileSync(dir);
+// Jimp.read(buffer, function(err, image) {
+//     if (err) {
+//         console.error(err);
+//         // TODO handle error
+//     }
+//     var qr = new QrCode();
+//     qr.callback = function(err, value) {
+//         if (err) {
+//             console.error(err);
+//             // TODO handle error
+//         }
+//         console.log(value.result);
+//          inter = value.result
+//          rutu = inter.split(",")
+//     };
+//     qr.decode(image.bitmap);
+// });
 
-routers.post('/ticket', async (req, res)=>{
+// routers.post('/ticket', async (req, res)=>{
 
-  var newObj = Object.assign({
-    'src': rutu[2],
-    'dest': rutu[3],
-    'date': rutu[1],
-    'time': rutu[5],
-    'ret': rutu[4],
-    'AFB': rutu[0]
-  })
-  console.log(newObj)
-    const task = new tasks(newObj)     
+//   var newObj = Object.assign({
+//     'src': rutu[2],
+//     'dest': rutu[3],
+//     'date': rutu[1],
+//     'time': rutu[5],
+//     'ret': rutu[4],
+//     'AFB': rutu[0]
+//   })
+//   console.log(newObj)
+//     const task = new tasks(newObj)     
 
-    try {
-      await task.save()
-      res.status(201).send(task)
-    } catch(e) {
-      res.status(400).send(e)
-    }
-  })
-  // GET /tasks?completed=true
-  //GET /tasks?limit=10&skip=20
-  // GET /tasks?sortBy=createdAt:desc
-  // routers.get('/fertilizer', auth, async (req, res)=>{
-  //  const match = {} 
-  //   const sort = {}
-  //  if (req.query.completed) {
-  //     match.completed = req.query.completed === 'true'
-  //  }
-   
-  //  if (req.query.sortBy) {
-  //    const parts = req.query.sortBy.split(':')
-  //    sort[parts[0]] = parts[1] === 'desc' ? -1 : 1 
-  //  }
-  //   try {
-  //     await req.user.populate({
-  //       path: 'tasks',
-  //       match,
-  //       options: {
-  //           limit: parseInt(req.query.limit),
-  //           skip: parseInt(req.query.skip),
-  //           sort
-  //       }
-  //     }).execPopulate()
-  //     res.send(req.user.tasks)
-  //   } catch(e) {
-  //     res.status(500).send(e)
-  //   }
-  // })
-  
-  // routers.get('/fertilizer/:id', auth, async (req, res)=>{
-  //  const _id = req.params.id
-    
-  //   try{
-  //     const task = await tasks.findOne({ _id, owner: req.user._id })
+//     try {
+//       await task.save()
+//       res.status(201).send(task)
+//     } catch(e) {
+//       res.status(400).send(e)
+//     }
+//   })
 
-  //     if(!task) {
-  //       res.status(404).send()
-  //     }
-
-  //     res.send(task)
-  //   } catch(e) {
-  //     res.status(500).send(e)
-  //   }
-  // })
-  
-  // routers.patch('/fertilizer/:id', auth, async (req, res)=>{
-  //   const Updates = Object.keys(req.body)
-  //   const allowedUpdates = ['item' , 'cost']
-  //   const isValidOperation = Updates.every((update) => allowedUpdates.includes(update))
-  
-    
-  //   if(!isValidOperation) {
-  //     return res.status(400).send({error: 'Invalid Updates'})
-  // }
-  
-  //   try {
-  //       const task = await tasks.findOne({ _id: req.params.id, owner: req.user._id })
-       
-        
-  //     //const task = await tasks.findByIdAndUpdate(req.params.id, req.body, { new:true, runValidators:true})
-  
-  //     if(!task){
-  //       return res.status(404).send()
-  //     }
-  
-  //     Updates.forEach((update) => task[update] = req.body[update])
-
-  //       await task.save()
-
-  //     res.send(task)
-  //   } catch(e){
-  //       res.status(400).send(e)
-  //   }
-  // })
-  
-  routers.delete('/fertilizer/:id', async (req,res)=>{
-    try {
-      const task = await tasks.findOneAndDelete({ _id: req.params.id, owner: req.user._id })
-      
-      if(!task) {
-        return res.status(404).send()
-      }
-  
-      res.send(task)
-    } catch(e) {
-      res.status(400).send(e)
-    }
-  })
 
   module.exports = routers
