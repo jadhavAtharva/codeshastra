@@ -4,21 +4,21 @@ const validator = require('validator')
 const taskSchema = new mongoose.Schema({
     src: {
         type: String,
-        required: true,
+        // required: true,
         trim: true
     },
     dest: {
         type: String,
         trim: true,
-        required: true
+        //required: true
     },
     date: {
         type: String,
-        required: true,
+        //required: true,
     },
     time: {
         type: String,
-        required: true
+        //required: true
     },
     AFB: {
         type: String,

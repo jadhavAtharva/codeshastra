@@ -4,12 +4,7 @@ const cors = require('cors')
 const bodyParser = require('body-parser')
 const random = require('randomstring')
 
-const rn_number = random.generate({
-    length: 8,
-    charset: 'alphanumeric'
-})
 const app = express()
-var final = ''
 app.use(express.json())
 app.use(cors())
 app.use(bodyParser.urlencoded({extended:false}))
@@ -17,12 +12,17 @@ app.use(bodyParser.json())
 
 app.post('/qrcode', (req,res) =>{
     
+    var rn_number = random.generate({
+        length: 8,
+        charset: 'alphanumeric'
+    })
+    console.log(rn_number)
     var a = req.body.a
     var b = req.body.b
-    var e = rn_number
+    // var e = rn_number
     var f = req.body.f
-
-    const process = spawn('python', ['./qrcode.py',a,b,e,f]);
+    const spawn = require('child_process').spawn;
+    const process = spawn('python', ['./qrcode.py',a,b,f]);
     console.log(a)
     process.stdout.on('data', function(data) {
 
@@ -37,5 +37,3 @@ app.post('/qrcode', (req,res) =>{
 app.listen(5000, ()=>{
     console.log('Server is running!')
 })
-
-module.exports = final

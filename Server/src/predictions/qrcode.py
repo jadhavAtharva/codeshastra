@@ -7,9 +7,15 @@ import sys
 import pymongo
 from pymongo import MongoClient
 from random import randint
+import random
+import string
 
 client = MongoClient()
 client = MongoClient('localhost',27017)
+
+def rand(n):
+  alphabet = string.ascii_letters + string.digits
+  return ''.join(random.choice(alphabet) for i in range(n))
 
 now = datetime.now()
 
@@ -19,7 +25,7 @@ d1 = today.strftime("%d-%m-%Y")
 
 db = client.database
 
-a = sys.argv[3]
+a = rand(8)
 b = d1
 c = sys.argv[1]
 d = sys.argv[2]

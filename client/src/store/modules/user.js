@@ -65,7 +65,7 @@ ticket (state,generate) {
 newData (state, data) {
   axios.post('http://localhost:3000/data', data)
   .then((response) => {
-    alert('Acess given')
+    alert(response.data)
     console.log(response)
   })
   .catch((error) => {

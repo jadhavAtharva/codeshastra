@@ -1,5 +1,5 @@
 var sample = require('./sample.json')
-var station_code = sample["Khandeshwar"]
+var station_code = sample["airoli"]
 var check_day = function(day , typeofjourney) {
     if(typeofjourney == 1){
         var d = new Date()
@@ -55,8 +55,8 @@ var check_validity = function(time,src){
 
 var check_station = function(src, dest){
      //condition for station validity
-     var s_station = src
-     var d_station = dest
+     var s_station = src.toLowerCase()
+     var d_station = dest.toLowerCase()
      if(sample[s_station]<=station_code && sample[d_station]>=station_code)
      {
          return 1
@@ -66,4 +66,4 @@ var check_station = function(src, dest){
      }
 }
 
-module.exports = {check_day,check_station,check_validity}
+module.exports = {check_day,check_station,check_validity, station_code}
